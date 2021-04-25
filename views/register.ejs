@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    <style>form {
+      padding: 30px 15px;
+    }
+
+    img {
+      height: 150px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <form action="/register" method="post">
+      <legend>Register</legend>
+      <% if(typeof errors != 'undefined'){ %> <% errors.forEach(function(error) { %>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= error %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <% }); %> <% } %>
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" class="form-control" name="name" value="<%= typeof name != 'undefined' ? name : '' %>"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="name">Your Email</label>
+        <input type="email" name="email" id="" value="<%= typeof email != 'undefined' ? email : '' %>"
+          class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="name"> Password</label>
+        <input type="password" class="form-control" value="<%= typeof password != 'undefined' ? password : '' %>"
+          name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Confirm Password</label>
+        <input type="password" class="form-control" name="cpassword"
+          value="<%= typeof password2 != 'undefined' ? password2 : '' %>" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    <a style='text-align: center;display: block;' href="/login">Already have an account? Sign In</a>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+}
+
+body::after {
+  content: '';
+  background-color: #000000;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8cmVjdCB3aWR0aD0iNTYiIGhlaWdodD0iMTAwIiBmaWxsPSIjZjhkMjAzIj48L3JlY3Q+CjxwYXRoIGQ9Ik0yOCA2NkwwIDUwTDAgMTZMMjggMEw1NiAxNkw1NiA1MEwyOCA2NkwyOCAxMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZjYyOSIgc3Ryb2tlLXdpZHRoPSIyIj48L3BhdGg+CjxwYXRoIGQ9Ik0yOCAwTDI4IDM0TDAgNTBMMCA4NEwyOCAxMDBMNTYgODRMNTYgNTBMMjggMzQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZTUwMyIgc3Ryb2tlLXdpZHRoPSIyIj48L3BhdGg+Cjwvc3ZnPg==');
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+.container {
+  min-width: max-content;
+  max-width: 90vw;
+  width: 400px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: rgb(248, 248, 248);
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 50px 0px 25px;
+}
+
+form {
+  min-width: max-content;
+  margin: auto;
+}
+
+form legend {
+  padding: 10px;
+  text-align: center;
+  font-size: 60px;
+  padding-bottom: 60px;
+}
+.form-group label {
+  font-size: 17px;
+  font-weight: 400;
+}
+.form-group {
+  min-width: 350px;
+  min-height: 65px;
+  padding: 0px 30px;
+}
+.form-group input {
+  height: 50px;
+}
+.btn-info,
+.btn-primary {
+  width: 86%;
+  margin: 32px 7% 0px;
+  padding: 9px;
+  justify-self: center;
+}
+.btn-primary {
+  margin: 16px 7% 0px;
+}
+.alert {
+  text-align: center;
+}
+form#setin {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+#setin img {
+  width: 256px;
+  height: 256px;
+  margin: auto;
+  border-radius: 50%;
+}
+
+#setin img::before {
+  content: '<i class="fas fa-camera"></i>';
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.form-group.checker {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-areas: 'alert alert' 'label label' 'input checker';
+}
+.form-group.checker label {
+  grid-area: label;
+}
+.form-group.checker input.form-control {
+  border-radius: 20px;
+  height: 44px;
+}
+.form-group.checker .btn-primary {
+  padding: 0px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  align-self: center;
+  margin: auto;
+  font-size: 20px;
+}
+
+.form-group.checker div {
+  grid-area: alert;
+  text-align: center;
+}

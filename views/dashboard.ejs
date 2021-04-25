@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trinket</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=MuseoModerno&family=Roboto+Mono:wght@300;600&family=Roboto+Slab:wght@200&family=Roboto:wght@100;300;400&&family=Noto+Sans&family=Oswald:wght@100&family=Asap&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">   
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body>
+  <div class="adder">
+    <div class="chadder">
+      <h3>Add Contacts</h3>
+      <button class="close btn" data-dismiss="alert" id="friend-adder-popup-closer-btn" aria-label="Close">
+        <i class="fas fa-times"></i>
+</button>
+      <div class="search">
+        <input type="text" class='form-control text-light bg-dark searcher' placeholder="&#xF002; Search or start a new chat">
+      </div>
+      <div class="add">
+      <div class="room">
+        <img src="assets/https___fansided.com_files_2020_08_Matrix_Laurence-Fisburne-Matrix-850x560.jpg" alt="">
+        <h4>Morpheus</h4>
+        <button class="btn btn-primary">Add Friend</button>
+
+      </div>
+      <div class="room">
+        <img src="assets/Zion-the_living_levels.jpg" alt="">
+        <h4>City of Zion</h4>
+        <button class="btn btn-primary">Add Friend</button>
+
+      </div>
+      <div class="room">
+        <img src="assets/The-Matrix-4-Trinity-Leather-Coat.jpg" alt="">
+        <h4>Trinity</h4>
+        <button class="btn btn-primary">Add Friend</button>
+
+      </div>
+      <div class="room">
+        <img src="assets/https___fansided.com_files_2020_08_Matrix_Laurence-Fisburne-Matrix-850x560.jpg" alt="">
+        <h4>Morpheus</h4>
+        <button class="btn btn-primary">Add Friend</button>
+      </div>
+      
+    </div>    
+    </div>
+  </div>
+<div class="chatter-container">
+  <nav><button class="btn btn-dark" id='sidebar-btn'><i class="fas fa-bars"></i></button> <h1>TRINKET</h1> <a class="btn btn-primary" href="/logout">Logout</a></nav>
+
+  <div class="p-info">
+    <div class="personal">
+      <img src="<%=user.photo%>" alt="">
+      <div class="namers">
+      <H3><%=user.name%></H3>
+      <h5>@<%=user.username%></h5></div>
+      <button class="btn btn-dark" id='UserAdd'><i class="fas fa-plus"></i>
+      </button>
+      <button class="btn btn-dark"><i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+   
+  
+  <div class="rooms">
+    <div class="search">
+      <input type="text" class='form-control text-light bg-dark searcher' placeholder="&#xF002; Search or start a new chat">
+    </div>
+    <div class="room">
+      <img src="assets/https___fansided.com_files_2020_08_Matrix_Laurence-Fisburne-Matrix-850x560.jpg" alt="">
+      <h4>Morpheus</h4>
+    </div>
+    <div class="room">
+      <img src="assets/Zion-the_living_levels.jpg" alt="">
+      <h4>City of Zion</h4>
+    </div>
+    <div class="room">
+      <img src="assets/The-Matrix-4-Trinity-Leather-Coat.jpg" alt="">
+      <h4>Trinity</h4>
+    </div>
+
+     </div></div>
+     <div class="contact">
+      <img src="assets/group.png" alt="">
+      <h3>General</h3>
+       </div>
+  <div class="chat-container">
+
+    <div class="chat-history"> 
+      <%messages.forEach((message)=>{%>
+      <div class="message <%if(message.from==user.name){%>self<%}%>">
+      <p class="meta">
+        
+        <%=message.from%> <span><%=message.disptime%></span></p>
+      <p class="text">
+        <%=message.message%>
+      </p>
+    </div>
+
+<%})%>
+  </div>
+    <div class="chat-in">
+    <form id='chatter'>
+      <input type="text" id='message' class='form-control text-light bg-dark' placeholder="Enter Your Message Here">
+      <button type="submit" class='btn btn-primary'>  <i class="fas fa-paper-plane"></i></button>
+    </form>
+    </div>
+  </div>
+  </div>
+</body>
+<script src="/socket.io/socket.io.js"></script> 
+<script src="js/main.js"></script>
+</html>

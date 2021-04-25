@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--dark);
+    }
+
+    h1 {
+      color: white;
+      width: 100%;
+      text-align: center;
+      font-family: sans-serif;
+      font-weight: 100;
+      font-size: 60px;
+      margin-top: 40px;
+
+    }
+
+    h4 {
+      color: white;
+      font-family: sans-serif;
+      text-transform: capitalize;
+      width: fit-content;
+      font-weight: 100;
+      font-size: 21px;
+      display: inline;
+      padding: 10px;
+      position: relative;
+      top: 7px;
+      padding-left: 5px;
+    }
+
+    .form-group {
+      width: max-content;
+      min-width: 100px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 100px;
+
+    }
+
+    .btn {
+      position: relative;
+      bottom: 3px;
+    }
+
+    .btn-success {
+      position: absolute;
+      font-family: sans-serif;
+      font-weight: 100;
+      top: 0;
+      right: 0;
+      width: min-content;
+      height: min-content;
+    }
+
+    .form-control {
+      width: 70vw;
+      max-width: 500px;
+      display: inline;
+      background: rgb(42, 46, 48);
+      color: rgb(218, 218, 218);
+
+    }
+
+    li.tasker {
+      width: 70vw;
+      max-width: 580px;
+      position: relative;
+      right: 40PX;
+      background: rgb(42, 46, 48);
+      color: rgb(218, 218, 218);
+    }
+
+    li.tasker:hover {
+      text-decoration: line-through;
+      cursor: pointer;
+      background: rgb(20, 22, 22);
+      color: rgb(218, 218, 218);
+
+    }
+
+    #dp {
+      width: 40px;
+      border-radius: 50%;
+      margin: 5px 0px 0px 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="">
+    <img src="assets/user.svg" alt="">
+    <img src="<%=user.photo%>" alt="" id="dp">
+    <h4> <%=user.username%></h4>
+    <h1>Todo list</h1>
+    <a href="/logout" class='btn btn-success'>logout</a>
+    <form action="/todo" method="post">
+      <div class="form-group"><input type="text" name="str" class="form-control">
+
+        <button type="submit" class="btn btn-info">Submit</button>
+    </form>
+    <ul>
+      <% for(x of data){%>
+      <li class="list-group-item list-group-item-action tasker"><%= x.task%></li>
+      <%}%>
+     
+    </ul>
+  </div>
+
+<script>
+var x=document.querySelectorAll("li").forEach(item =>{
+  item.addEventListener("click",async event=>{
+    var x=item.textContent;
+  await  fetch('/todo?item='+x, {
+  method: 'delete',
+  headers: {'Content-Type': 'application/json'},
+  
+});
+location.reload();
+    
+  })
+})
+</script>
+</body>
+</html>

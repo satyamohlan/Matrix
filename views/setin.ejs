@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+  integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    <style>form {
+      padding: 30px 15px;
+    }
+
+    img {
+      height: 150px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <form id='setin'>
+      <img src="<%=photo%>" alt="">
+
+      <legend>Login</legend>
+
+      <div class="form-group checker">
+
+ 
+        
+        <label for="username"></label>
+        
+        <input type="text" class="form-control username" name="username" 
+          required placeholder="Pick Your username">
+          <button class="btn btn-primary" type="button" onclick="check()"><i class="fas fa-check-circle"></i></button>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="js/setin.js"></script>
+</html>
